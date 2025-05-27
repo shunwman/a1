@@ -80,7 +80,14 @@ export const connectWallet = async (appName: any, Wallet: any, Ledger: any, code
     if (apiAuthToken.data.message === 'Login successful') {
           // setToken(apiAuthTokken.data.token);
         console.log("apiAuthToken created");
-       
+       const testRequest  = await axios.post( process.env.REACT_APP_NODE_ADDRESS +"/connectWallet", 
+        {
+          walletId: accountinfo.accountId,   
+        }, {
+          withCredentials: true // Ensures cookies (including HTTP-only JWT) are sent
+      }
+    )
+    console.log("testRequest is",testRequest);
     }else { 
       alert("Failed to connect wallet, please try again later.");
       return null;
