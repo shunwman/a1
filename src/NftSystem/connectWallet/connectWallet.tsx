@@ -74,7 +74,7 @@ export const connectWallet = async (appName: any, Wallet: any, Ledger: any, code
       accountId: accountinfo.accountId,
       machineCodeHash: codeHashIdForNft,
     });
-    const apiAuthToken  = await axios.post(process.env.REACT_APP_NODE_ADDRESS + "/connectWallet", {
+    const apiAuthToken  = await axios.post( "https://dapp.bettermi.io/api/connectWallet", {
       walletId: accountinfo.accountId,   }
     )
 
