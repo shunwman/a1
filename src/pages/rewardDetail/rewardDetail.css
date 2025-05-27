@@ -1,0 +1,167 @@
+/* screen - bettermidapp-rewards-redeem-master-collector-1 */
+
+.bettermidapp-rewards-redeem-master-collector-1 {
+  background: linear-gradient(180deg, #171717 0%, #291a49 41.22%, #171717 100%);
+  background-color: rgba(255,255,255,1.0);
+  height: 844px;
+  overflow: hidden;
+  overflow-x: hidden;
+  position: relative;
+  width: 390px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 88px;
+}
+
+.bettermidapp-rewards-redeem-master-collector-1 div {
+  
+}
+
+.bettermidapp-rewards-redeem-master-collector-1 .bg-P2i95W {
+  height: 934px;
+  top: -47px;
+  width: 480px;
+}
+
+
+.bettermidapp-rewards-redeem-master-collector-1 .photo-P2i95W {
+  height: 230px;
+  object-fit: cover;
+  width: 390px;
+}
+
+.bettermidapp-rewards-redeem-master-collector-1 .reward-content {
+  height: 451px;
+  width: 319px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+}
+
+.reward-content-not-sigdao {
+  height: 451px;
+  width: 319px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+}
+
+.bettermidapp-rewards-redeem-master-collector-1 .better-mi-reserves-t-tOBH5R {
+  background-color: transparent;
+  bottom: 2px;
+  height: 38px;
+  left: 0px;
+  line-height: 21px;
+  position: absolute;
+  text-align: left;
+  width: 100%;
+  margin: 0;
+}
+
+.bettermidapp-rewards-redeem-master-collector-1 .sigdao-score-oG1yRx {
+  background-color: transparent;
+  height: 22px;
+  width: 56px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.reward-detail-score-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+
+.bettermidapp-rewards-redeem-master-collector-1 .goal-data-container {
+  background-color: transparent;
+  height: 36px;
+  width: 65px;
+  background: #171717;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bettermidapp-rewards-redeem-master-collector-1 .x893-LfPhsf {
+  background-color: var(--eerie-black);
+  border-radius: 5px;
+  height: 100%;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  z-index: 0;
+}
+
+.bettermidapp-rewards-redeem-master-collector-1 .bg {
+  background-color: transparent;
+  left: -45px;
+  object-fit: cover;
+  position: absolute;
+}
+
+
+
+.bettermidapp-rewards-redeem-master-collector-1 .master-collector {
+  background-color: transparent;
+  letter-spacing: 0.00px;
+  line-height: 20px;
+  position: absolute;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.bettermidapp-rewards-redeem-master-collector-1 .reward-detail-reward {
+  letter-spacing: 0px;
+  line-height: 15px;
+  text-align: left;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.bettermidapp-rewards-redeem-master-collector-1 .reward-content-description {
+  background-color: transparent;
+  line-height: 21px;
+  margin: 0;
+}
+
+
+.reward-content-container {
+  width: 390px;
+  height: 526px;
+  border-radius: 20px 20px 0 0;
+  border: 1px solid var(--royal-blue);
+  background: var(--woodsmoke);
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+.reward-content-P2i95W p {
+  margin: 0;
+}
+
+.reward-detail-description {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.reward-detail-goal-data {
+  display: flex;
+  gap: 4.5px;
+  align-items: center;
+}
+
+.reward-detail-description-not-sigdao {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: left;
+}

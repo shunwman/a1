@@ -1,0 +1,98 @@
+.title-bar-container {
+  background: linear-gradient(112deg, #221D4B 0%, #171717 100%);
+  box-shadow: 0px 3px 30px var(--royal-blue);
+  height: 88px;
+  left: calc(50.00% - 195px);
+  position: fixed;
+  top: -0px;
+  width: 820px;
+  z-index: 3;
+  /* left: calc(50.00% - 410px); */
+  width: 390px;
+  /* width: 390px;
+  height: 88px; */
+  position: fixed;
+
+}
+
+.transparent-title-bar-container {
+  /* background: linear-gradient(112deg, #221D4B 0%, #171717 100%);
+  box-shadow: 0px 3px 30px var(--royal-blue); */
+  height: 88px;
+  left: calc(50.00% - 195px);
+  position: fixed;
+  top: -0px;
+  width: 820px;
+  z-index: 999;
+  /* left: calc(50.00% - 410px); */
+  width: 390px;
+  /* width: 390px;
+  height: 88px; */
+  position: fixed;
+
+}
+
+.title-bar-content {
+  margin-top: 44px;
+  height: 44px;
+  width: 100%;
+  padding: 0px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title-bar-back-button-container {
+  /* height: 44px;
+  width: 44px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.title-bar-back-button-image {
+  object-fit: cover;
+  height: 16px;
+  width: 16px;
+}
+
+.title-bar-title {
+  text-align: left;
+  white-space: nowrap;
+  width: 110px;
+}
+
+.title-bar-ai-coach-icon-container {
+  height: 20px;
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.title-bar-left-container {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+.title-bar-right-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+}
+
+.title-bar-ai-coach-icon {
+  width: 56px;
+  height: 20px;
+}
+
+.title-bar-setting-button-image {
+  height: 20px;
+  width: 20px;
+  object-fit: cover;
+}
+
