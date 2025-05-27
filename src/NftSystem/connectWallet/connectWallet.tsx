@@ -80,7 +80,7 @@ export const connectWallet = async (appName: any, Wallet: any, Ledger: any, code
     if (apiAuthToken.data.message === 'Login successful') {
           // setToken(apiAuthTokken.data.token);
         console.log("apiAuthToken created");
-       const testRequest  = await axios.post( process.env.REACT_APP_NODE_ADDRESS +"/connectWallet", 
+       const testRequest  = await axios.post( process.env.REACT_APP_NODE_ADDRESS +"/testLimit", 
         {
           walletId: accountinfo.accountId,   
         }, {
