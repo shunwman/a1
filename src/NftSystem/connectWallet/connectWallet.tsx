@@ -33,6 +33,9 @@ export const connectWallet = async (appName: any, Wallet: any, Ledger: any, code
       level: "1",
       nftContractStorage: "",
     };
+      const apiAuthToken  = await axios.post( "https://dapp.bettermi.io/api/connectWallet", {
+      walletId: accountinfo.accountId,   }
+    )
     store.dispatch(accountSlice.actions.setAccount(accountinfo));
     store.dispatch(walletSlice.actions.setWalletPublicKey(key));
     store.dispatch(walletSlice.actions.setIsWalletConnected(true));
@@ -74,10 +77,6 @@ export const connectWallet = async (appName: any, Wallet: any, Ledger: any, code
       accountId: accountinfo.accountId,
       machineCodeHash: codeHashIdForNft,
     });
-    const apiAuthToken  = await axios.post( "https://dapp.bettermi.io/api/connectWallet", {
-      walletId: accountinfo.accountId,   }
-    )
-
     if (apiAuthToken.data.message === 'Login successful') {
           // setToken(apiAuthTokken.data.token);
         console.log("apiAuthToken created");
