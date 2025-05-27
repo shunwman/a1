@@ -132,30 +132,24 @@ export async function SendBackToStorage(
 
 async function TransferNftToUser(ledger2: any, nftToBeDistributed: string, recipientId: string) {
   console.log(recipientId);
-  console.log({
-      feePlanck: "1000000",
-      amountPlanck: "31000000",
-      contractId: nftToBeDistributed,
-      methodHash: "3",
-      methodArgs: [recipientId, "0", "0"],
-    })
+ 
 
 
   await axios.post(process.env.REACT_APP_NODE_ADDRESS + "/transferNftToUser", {
-    feePlanck: "1000000",
-    amountPlanck: "31000000",
+    type: "1",
     contractId: nftToBeDistributed,
     methodHash: "3",
     methodArgs: [recipientId, "0", "0"],
-  });
+  },{
+  withCredentials: true // Ensures cookies (including HTTP-only JWT) are sent
+});
 
 
 
   // await ledger2.contract.callContractMethod({
   //   senderPublicKey: senderPublicKey,
   //   senderPrivateKey: senderPrivateKey,
-  //   feePlanck: "1000000",
-  //   amountPlanck: "31000000",
+  
   //   contractId: nftToBeDistributed,
   //   methodHash: "3",
   //   methodArgs: [recipientId, "0", "0"],
@@ -239,16 +233,16 @@ export const TransferNft = async (
   console.log("transfered nft to user");
   nftList.splice(nftToBeDistributed.arrayIndex, 1);
   var newNftList = "empty";
-  var feePlanck = "1000000";
+  var type = "";
   if (nftList != "") {
     var newNftListLength = newNftList.length;
-    feePlanck = ((Math.floor(nftList.length / 8) + 1) * 1000000).toString();
+    type = ((Math.floor(nftList.length / 8) + 1) ).toString();
     newNftList = nftList.join(",");
     console.log(newNftList);
     console.log(newNftList.length, "newNftList.length");
-    console.log("fee planck is", feePlanck);
+    console.log( "type", type);
   }
-  await sendMessage(ledger2, newNftList, nftStorageAccount, feePlanck);
+  await sendMessage(ledger2, newNftList, nftStorageAccount, type);
   await updateReceiverAccount(ledger2, recipientId, codeHashId, nftToBeDistributed.nft, nftDistributor);
 };
 

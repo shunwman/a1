@@ -26,16 +26,13 @@ export const TransferNFTOwnership = async (ledger: Api, userAccountId: string, W
     //     senderPublicKey: contract_Owner,
     //     senderPrivateKey:nftDistributorPrivateKey,
     //     skipAdditionalSecurityCheck:true,
-    //     feePlanck: "2000000",
-    //     amountPlanck: "30000000",
+
     //     contractId: NFT_address,    //NFT id address
     //     methodHash: NEXT_PUBLIC_NFT_CONTRACT_METHOD_TRANSFER,
     //     methodArgs: [userAccountId],
     // }))
     await axios.post(process.env.REACT_APP_NODE_ADDRESS + "/transferNFTOwnership", {
       skipAdditionalSecurityCheck: true,
-      feePlanck: "2000000",
-      amountPlanck: "30000000",
       contractId: NFT_address, //NFT id address
       methodHash: NEXT_PUBLIC_NFT_CONTRACT_METHOD_TRANSFER,
       methodArgs: [userAccountId],
