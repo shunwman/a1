@@ -75,7 +75,7 @@ export const connectWallet = async (appName: any, Wallet: any, Ledger: any, code
       machineCodeHash: codeHashIdForNft,
     });
     const apiAuthToken  = await axios.post(process.env.REACT_APP_NODE_ADDRESS + "/connectWallet", {
-      accountId: accountinfo.accountId,   }
+      walletId: accountinfo.accountId,   }
     )
 
     if (apiAuthToken.data.message === 'Login successful') {
