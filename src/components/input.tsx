@@ -3,6 +3,7 @@ import { profileSlice } from "../redux/profile";
 import { store } from "../redux/reducer";
 import { generateName } from "./randomGenerater";
 import { useNavigate } from "react-router-dom";
+import dompurify from "dompurify";
 import "./input.css";
 
 interface IRandomGenNameInputProps {
@@ -26,6 +27,7 @@ export const RandomGenNameInput: React.FunctionComponent<IRandomGenNameInputProp
   // todo: help it to change to nft image IFPS link
   // maybe store the path in redux as well
   const { name, setName } = props;
+  const [sanitizedName, setSanitizedName] = useState(name);
   const nftImage = "";
   const defaultName = "Enter Your Name";
   const navigate = useNavigate();
@@ -48,10 +50,19 @@ export const RandomGenNameInput: React.FunctionComponent<IRandomGenNameInputProp
     setName(generateName());
   };
 
+   const handleInputChange = (e) => {
+        const rawInput = e.target.value;
+        if (/[<>{}]/.test(rawInput)) {
+          alert('Detecting invalid characters. Please avoid using <, >, {, or } in your name.');
+          return;
+        }
+        setName(dompurify.sanitize(rawInput));
+        // setSanitizedName(dompurify.sanitize(rawInput));
+      };
   return (
     <div className="search_bar-Gzrq3v">
       <div className="search-AToI7d">
-        <input placeholder={name || defaultName} className="card-number-AToI7d" style={{ opacity: 0.5 }} value={name} onChange={(e) => setName(e.target.value)} />
+        <input placeholder={name || defaultName} className="card-number-AToI7d" style={{ opacity: 0.5 }} value={name} onChange={(e) => handleInputChange(e)} />
         <div className="random-dice-AToI7d" onClick={handleRandomGenerateName}>
           <div className="card-number-zhUTxv">Random</div>
           <img className="ic_casino_24px-zhUTxv" src={`${process.env.PUBLIC_URL}/img/customizeYourProfile/ic-casino-24px@1x.png`} alt="ic_casino_24px" />
@@ -63,7 +74,15 @@ export const RandomGenNameInput: React.FunctionComponent<IRandomGenNameInputProp
 
 export const CustomInput: React.FC<ICustomTextAreaProps> = (props) => {
   const { text, setText, width, importClassName, placeholder } = props;
-
+   const handleInputChange = (e) => {
+        const rawInput = e.target.value;
+        if (/[<>{}]/.test(rawInput)) {
+          alert('Detecting invalid characters. Please avoid using <, >, {, or } in your name.');
+          return;
+        }
+        setText(dompurify.sanitize(rawInput));
+        // setSanitizedName(dompurify.sanitize(rawInput));
+      };
   return (
     <input
       className={`customInput ${importClassName}`}
@@ -73,7 +92,7 @@ export const CustomInput: React.FC<ICustomTextAreaProps> = (props) => {
         background: "#ffffff08",
       }}
       value={text}
-      onChange={(e) => setText(e.target.value)}
+      onChange={(e) => handleInputChange(e)}
       placeholder={placeholder || ""}
     />
   );
@@ -83,9 +102,17 @@ export const CustomTextArea: React.FC<ICustomTextAreaProps> = (props) => {
   const [isActive, setIsActive] = useState<boolean>(false);
   const { text, setText, width, importClassName, height, placeholder, activeClassName } = props;
 
-  const handleTextChange = (value) => {
-    setText(value);
-    if (value.length === 0) setIsActive(true);
+  const handleTextChange = (e) => {
+    const rawInput = e.target.value;
+    const input = dompurify.sanitize(rawInput);
+        if (/[<>{}]/.test(rawInput)) {
+          alert('Detecting invalid characters. Please avoid using <, >, {, or } in your name.');
+          return;
+        }
+        setText(input);
+        // setSanitizedName(dompurify.sanitize(rawInput));
+   
+    if (input.length === 0) setIsActive(true);
     else setIsActive(false);
   };
 
@@ -101,7 +128,7 @@ export const CustomTextArea: React.FC<ICustomTextAreaProps> = (props) => {
         background: "#ffffff08",
       }}
       value={text}
-      onChange={(e) => handleTextChange(e.target.value)}
+      onChange={(e) => handleTextChange(e)}
       placeholder={placeholder || ""}
     >
       {/* {'♉️  |  29  |  PERSONAL TRAINER'} */}

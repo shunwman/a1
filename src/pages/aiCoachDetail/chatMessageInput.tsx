@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ChatHistory, aiCoachSlice, selectCurrentAiMsg } from "../../redux/aiCoach";
 import { generateDotIoMessage, generateMimiMessage } from "../../components/randomGenerater";
+import dompurify from "dompurify";
 
 interface IChatMessageInputProps {
   msgInput: string;
@@ -42,6 +43,16 @@ const ChatMessageInput: React.FunctionComponent<IChatMessageInputProps> = ({ msg
     }
   };
 
+     const handleInputChange = (e) => {
+        const rawInput = e.target.value;
+        if (/[<>{}]/.test(rawInput)) {
+          alert('Detecting invalid characters. Please avoid using <, >, {, or } in your name.');
+          return;
+        }
+        setMsgInput(dompurify.sanitize(rawInput));
+        // setSanitizedName(dompurify.sanitize(rawInput));
+      };
+
   return (
     <div className="message-input-container">
       <div className="coach-typing-reminder"></div>
@@ -50,7 +61,7 @@ const ChatMessageInput: React.FunctionComponent<IChatMessageInputProps> = ({ msg
           className="chat-message-input inter-normal-15px"
           ref={inputRef}
           value={msgInput}
-          onChange={(e) => setMsgInput(e.target.value)}
+          onChange={(e) => handleInputChange(e)}
           onKeyDown={handleKeyDown}
           type="text"
           placeholder="I need help..."

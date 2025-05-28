@@ -12,7 +12,7 @@ import { useSendIoMsgMutation, useSendMimiMsgMutation } from "../../redux/aiCoac
 import { ChatHistory, aiCoachSlice, selectCurrentAiMsg } from "../../redux/aiCoach";
 import { useDispatch, useSelector } from "react-redux";
 import { IAiCoachDetailListProps, coachList } from "../../data/aiCoachDetailList";
-
+import dompurify from "dompurify";
 
 interface IAiCoachDetailProps {}
 
@@ -79,13 +79,21 @@ const AiCoachDetail: React.FunctionComponent<IAiCoachDetailProps> = (props) => {
     }
   }
 
-
+   const handleInputChange = (e) => {
+        const rawInput = e.target.value;
+        if (/[<>{}]/.test(rawInput)) {
+          alert('Detecting invalid characters. Please avoid using <, >, {, or } in your name.');
+          return;
+        }
+        setMsgInput(dompurify.sanitize(rawInput));
+        // setSanitizedName(dompurify.sanitize(rawInput));
+      };
 
   const chatMessageInput: JSX.Element = (
     <div className="message-input-container">
       <div className="coach-typing-reminder"></div>
       <div className="message-input-area">
-        <input className="chat-message-input inter-normal-15px" value={msgInput} onChange={(e) => setMsgInput(e.target.value)} onKeyDown={handleKeyDown} type="text" placeholder="I need help..."/>
+        <input className="chat-message-input inter-normal-15px" value={msgInput} onChange={(e) => handleInputChange(e)} onKeyDown={handleKeyDown} type="text" placeholder="I need help..."/>
         <div className="random-message-generate" onClick={handleRandomQuestion}>
           <img className="ic_casino_24px-dF0TP0" src={`${process.env.PUBLIC_URL}/img/aiCoachDetail/ic-casino-24px-1@1x.png`} alt="ic_casino_24px" />
         </div>
